@@ -43,10 +43,10 @@ our %EXPORT_TAGS = (
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
-    
+
 );
 
-our $VERSION = '0.91';
+our $VERSION = sprintf('%d.%02d', q$Revision: 1.1.1.1 $ =~ /(\d+)\.(\d+)/);
 
 sub startup { 1; }
 
@@ -81,7 +81,7 @@ sub run
     #while ($Kolab::config{'dirserv_mailbox_server'} ne '') {
     while (1) {
 
-      if ($Kolab::config{'dirserv_mailbox_user'} ne "") { 
+      if ($Kolab::config{'dirserv_mailbox_user'} ne "") {
 	Kolab::log('DSd', 'Polling for DirServ updates', KOLAB_DEBUG);
 	Kolab::DirServ::handleNotifications(
         	$Kolab::config{'dirserv_mailbox_server'},
@@ -94,8 +94,8 @@ sub run
 
 
     };
-    
-    
+
+
 
     1;
 }
@@ -111,7 +111,7 @@ Services updater.
 
 =head1 ABSTRACT
 
-  Kolab::LDAP::Backend::dirservd handles an DirServ updater 
+  Kolab::LDAP::Backend::dirservd handles an DirServ updater
   backend to the kolab daemon.
 
 =head1 AUTHOR
